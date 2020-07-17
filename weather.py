@@ -6,9 +6,9 @@ base_url = 'http://api.openweathermap.org/data/2.5/weather?appid=4b84c48893285fb
 print('Weathex Description')
 while True:
     city = input('Search for a city..\n')
-    if city == 'q' or 'Q':
-        break
-    #concatinating the base_url and city input to complete the query from user
+    if city == 'q':
+        break    
+#concatinating the base_url and city input to complete the query from user
     try:
         url = base_url + city
 
@@ -16,9 +16,9 @@ while True:
         weather_description = json_data['weather'][0]['description']
         country = json_data['sys']['country']
         temp = json_data['main']['temp']
-        print('Country:',country)
-        print('Temperature:',temp)
-        print(weather_description)
+        print('\tCountry:',country)
+        print('\tTemperature:',temp)
+        print('\t_',weather_description)
     except:
         #Display error when city name is invalid or no internet connection is available
         print('Invalid city name!\nOr\nNo internet connection')

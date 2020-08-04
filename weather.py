@@ -15,9 +15,10 @@ while True:
         json_data = requests.get(url).json()
         weather_description = json_data['weather'][0]['description']
         country = json_data['sys']['country']
-        temp = json_data['main']['temp']
+        tmp = json_data['main']['temp']
+        temp = round(int(tmp))
         print('\tCountry:',country)
-        print('\tTemperature:',temp)
+        print('\tTemperature:',temp,'°C')
         print('\t_',weather_description)
     except:
         #Display error when city name is invalid or no internet connection is available
